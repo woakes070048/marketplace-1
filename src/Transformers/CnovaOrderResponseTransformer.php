@@ -8,7 +8,7 @@ class CnovaOrderResponseTransformer extends Transformer
 {
     protected function transform(array $data)
     {
-        $orders = array_map(function($order) {
+        $orders = array_map(function ($order) {
             return [
                 'shop'         => $order['site'],
                 'martketplace' => [
