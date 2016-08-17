@@ -44,6 +44,6 @@ class BasicTest extends TestCase
             ],
         ]);
 
-        $this->assertInstanceOf(Cnova::class, $hub->cnova());
+        $this->assertInstanceOf(Cnova::class, $hub->Cnova());
     }
 }
