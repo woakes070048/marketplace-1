@@ -101,7 +101,7 @@ class Orders
     public function page($page)
     {
         $this->pageVal = $page;
-        $this->offsetVal = ($page-1)*$this->limitVal;
+        $this->offsetVal = ($page - 1) * $this->limitVal;
 
         return $this;
     }
@@ -114,6 +114,7 @@ class Orders
     public function get($page = 1)
     {
         $this->page($page);
+
         return $this->api->execute('get.orders'.$this->filter, ['limit' => $this->limitVal, 'offset' => $this->offsetVal])->getBody();
     }
 }

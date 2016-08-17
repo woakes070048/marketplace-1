@@ -15,10 +15,10 @@ class Hub
     {
         $this->apis = new Collection(Api::class);
 
-        array_map(function($api, $config){
+        array_map(function ($api, $config) {
             $apiClass = 'Raidros\Marketplace\Api\\'.$api;
 
-            if (! class_exists($apiClass)) {
+            if (!class_exists($apiClass)) {
                 throw new ApiClassNotFound('Api class not found: '.$apiClass);
             }
 
@@ -39,7 +39,8 @@ class Hub
         return $this->apis->add($api, $name);
     }
 
-    public function __call($method, $args) {
+    public function __call($method, $args)
+    {
         try {
             return $this->apis->findOrFail($method);
         } catch (\Exception $e) {

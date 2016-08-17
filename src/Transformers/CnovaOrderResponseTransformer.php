@@ -9,21 +9,19 @@ class CnovaOrderResponseTransformer extends Transformer
     protected function transform(array $data)
     {
         $orders = array_map(function($order){
-
             return [
-                'shop' => $order['site'],
+                'shop'         => $order['site'],
                 'martketplace' => [
-                    'id' => 1,
-                    'code' => 'cnova',
+                    'id'    => 1,
+                    'code'  => 'cnova',
                     'title' => 'Cnova',
                 ],
-                'mktOrderId' => $order['id'],
+                'mktOrderId'   => $order['id'],
                 'mktOrderCode' => $order['orderSiteId'],
-                'updatedAt' => date('Y-m-d H:i:s', strtotime($order['updatedAt'])),
-                'approvedAt' => date('Y-m-d H:i:s', strtotime($order['approvedAt'])),
-                'purchasedAt' => date('Y-m-d H:i:s', strtotime($order['purchasedAt'])),
+                'updatedAt'    => date('Y-m-d H:i:s', strtotime($order['updatedAt'])),
+                'approvedAt'   => date('Y-m-d H:i:s', strtotime($order['approvedAt'])),
+                'purchasedAt'  => date('Y-m-d H:i:s', strtotime($order['purchasedAt'])),
             ];
-
         }, $data['orders']);
 
         $metadata = $this->extractMetadata($data['metadata']);
@@ -31,8 +29,8 @@ class CnovaOrderResponseTransformer extends Transformer
         return [
             'data' => $orders,
             'meta' => [
-                'total' => $metadata['totalRows'],
-                'limit' => $metadata['limit'],
+                'total'  => $metadata['totalRows'],
+                'limit'  => $metadata['limit'],
                 'offset' => $metadata['offset'],
             ],
         ];
@@ -42,7 +40,7 @@ class CnovaOrderResponseTransformer extends Transformer
     {
         $result = [];
 
-        foreach($metadata as $data){
+        foreach ($metadata as $data) {
             $result[$data['key']] = $data['value'];
         }
 
