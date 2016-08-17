@@ -114,7 +114,11 @@ class Orders
     public function get($page = 1)
     {
         $this->page($page);
+        $data = [
+            'limit' => $this->limitVal,
+            'offset' => $this->offsetVal
+        ];
 
-        return $this->api->execute('get.orders'.$this->filter, ['limit' => $this->limitVal, 'offset' => $this->offsetVal])->getBody();
+        return $this->api->execute('get.orders'.$this->filter, $data)->getBody();
     }
 }
