@@ -115,7 +115,7 @@ class Orders
     {
         $this->page($page);
         $data = [
-            'limit' => $this->limitVal,
+            'limit'  => $this->limitVal,
             'offset' => $this->offsetVal
         ];
 
