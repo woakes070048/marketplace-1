@@ -10,6 +10,7 @@ use Raidros\Marketplace\Api\Cnova;
 use Raidros\Marketplace\Hub;
 use Raidros\Marketplace\Support\BaseApi;
 use Raidros\Marketplace\Transformers\CnovaOrderResponseTransformer;
+use Raidros\Marketplace\Transformers\CnovaRequestTransformer;
 use Raidros\Storer\Response;
 
 class HubTest extends TestCase
@@ -35,7 +36,9 @@ class HubTest extends TestCase
         $handler = HandlerStack::create($mock);
 
         $this->api = new BaseApi(['handler' => $handler], function ($api) {
-            $api->endpoint('get', '/order', 'get.orders')->transformer(new CnovaOrderResponseTransformer);
+            $api->endpoint('get', '/order', 'get.orders')
+                ->transformer(new CnovaOrderResponseTransformer)
+                ->transformer(new CnovaRequestTransformer, 'request');
             $api->endpoint('get', '/order/approved', 'get.orders.approved')->transformer(new CnovaOrderResponseTransformer);
             $api->endpoint('get', '/order/canceled', 'get.orders.canceled')->transformer(new CnovaOrderResponseTransformer);
             $api->endpoint('get', '/order/sent', 'get.orders.sent')->transformer(new CnovaOrderResponseTransformer);
