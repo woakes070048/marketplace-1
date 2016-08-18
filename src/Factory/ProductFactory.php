@@ -6,7 +6,7 @@ use Faker\Factory;
 
 class ProductFactory
 {
-    public static function generateData($attributes, $categories)
+    public static function generateData()
     {
         $faker = Factory::create();
 
