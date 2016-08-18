@@ -24,7 +24,7 @@ class BaseApi extends Api
      */
     public function endpointGroup($method, array $endpoints, Transformer $requestTransformer, Transformer $responseTransformers)
     {
-        array_map(function ($key, $point) use ($method) {
+        array_map(function ($key, $point) use ($method, $requestTransformer, $responseTransformers) {
             return $this->endpoint($method, $point, $key)
                 ->transformer($responseTransformers, 'response')
                 ->transformer($requestTransformer, 'request');
