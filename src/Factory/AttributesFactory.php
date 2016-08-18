@@ -19,7 +19,6 @@ class AttributesFactory
         $attributes = [];
 
         for ($i = 1; $i <= $max; $i++) {
-
             $attributes[] = [
                 'name' => $faker->firstName,
                 'value' => $faker->lastName,

@@ -38,7 +38,7 @@ class CnovaProductRequestTransformer extends Transformer
             'giftWrap' => [
                 'available' => false,
                 'value' => 0,
-                'messageSupport' => false
+                'messageSupport' => false,
             ],
             'attributes' => $data['attributes'],
         ];
