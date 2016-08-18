@@ -52,11 +52,11 @@ class HubTest extends TestCase
     {
         $transformedResponse = new Response(new Psr7Response(200, [], $this->responseTemplate), new CnovaOrderResponseTransformer);
 
-        $all = $this->hub->testApi()->orders()->get(1);
-        $approved = $this->hub->testApi()->orders()->approved(1);
-        $canceled = $this->hub->testApi()->orders()->canceled(1);
-        $sent = $this->hub->testApi()->orders()->sent(1);
-        $delivered = $this->hub->testApi()->orders()->delivered(1);
+        $all = $this->hub->testApi()->orders()->limit(100)->offset(0)->page(1)->get();
+        $approved = $this->hub->testApi()->orders()->approved()->get(1);
+        $canceled = $this->hub->testApi()->orders()->canceled()->get(1);
+        $sent = $this->hub->testApi()->orders()->sent()->get(1);
+        $delivered = $this->hub->testApi()->orders()->delivered()->get(1);
 
         $this->assertEquals($all, $transformedResponse->getBody());
 
