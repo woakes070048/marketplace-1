@@ -27,9 +27,12 @@ class Cnova extends BaseApi
                 'get.orders.delivered' => 'orders/status/delivered',
             ]);
 
-            $requestTransformer = new CnovaRequestTransformer();
-            $responseTransformer = new CnovaOrderResponseTransformer();
-            $api->transformerGroup($ordersEndpoints, $requestTransformer, $responseTransformer);
+            // transformers
+            $api->transformerGroup(
+                $ordersEndpoints,
+                new CnovaRequestTransformer(),
+                new CnovaOrderResponseTransformer()
+            );
         });
     }
 }

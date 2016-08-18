@@ -6,6 +6,13 @@ use Raidros\Storer\Transformer;
 
 class CnovaOrderListTransformer extends Transformer
 {
+    /**
+     * Transform all orders of a response in Cnova api.
+     *
+     * @param  array $data
+     *
+     * @return array
+     */
     protected function transform(array $data)
     {
         return array_map(function ($order) {
