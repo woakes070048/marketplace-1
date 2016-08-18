@@ -25,14 +25,7 @@ class Cnova extends BaseApi
                 'get.orders.canceled'  => 'orders/status/canceled',
                 'get.orders.sent'      => 'orders/status/sent',
                 'get.orders.delivered' => 'orders/status/delivered',
-            ]);
-
-            // transformers
-            $api->transformerGroup(
-                $ordersEndpoints,
-                new CnovaRequestTransformer(),
-                new CnovaOrderResponseTransformer()
-            );
+            ], new CnovaRequestTransformer(), new CnovaOrderResponseTransformer());
         });
     }
 }

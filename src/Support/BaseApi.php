@@ -3,6 +3,7 @@
 namespace Raidros\Marketplace\Support;
 
 use Raidros\Storer\Api;
+use Raidros\Storer\Transformer;
 
 class BaseApi extends Api
 {
@@ -11,19 +12,23 @@ class BaseApi extends Api
         return new Orders($this);
     }
 
-    public function endpointGroup($method, $endpoints)
+    /**
+     * Create endpoints based on array data.
+     *
+     * @param string                     $method
+     * @param array                      $endpoints
+     * @param Raidros\Storer\Transformer $requestTransformer
+     * @param Raidros\Storer\Transformer $responseTransformers
+     *
+     * @return self
+     */
+    public function endpointGroup($method, array $endpoints, Transformer $requestTransformer, Transformer $responseTransformers)
     {
-        return array_map(function ($key, $point) use ($method) {
-            return $this->endpoint($method, $point, $key);
+        array_map(function ($key, $point) use ($method) {
+            return $this->endpoint($method, $point, $key)
+                ->transformer($responseTransformers, 'response')
+                ->transformer($requestTransformer, 'request');
         }, array_keys($endpoints), $endpoints);
-    }
-
-    public function transformerGroup($endpoints, $requestTransformer, $responseTransformers)
-    {
-        array_map(function ($endpoint) use ($responseTransformers, $requestTransformer) {
-            $endpoint->transformer($responseTransformers, 'response');
-            $endpoint->transformer($requestTransformer, 'request');
-        }, $endpoints);
 
         return $this;
     }
