@@ -9,7 +9,7 @@ class CnovaOrderListTransformer extends Transformer
     /**
      * Transform all orders of a response in Cnova api.
      *
-     * @param  array $data
+     * @param array $data
      *
      * @return array
      */
