@@ -11,36 +11,36 @@ class CnovaProductRequestTransformer extends Transformer
         $categoryTransformer = new CnovaProductCategoryTransformer();
 
         return [
-            "skuId" => $data['skuId'],
-            "skuSellerId" => $data['skuSellerId'],
-            "productSellerId" => $data['skuSellerId'],
-            "title" => $data['title'],
-            "description" => $data['description'],
-            "brand" => $data['brand'],
-            "gtin" => $data['gtin'],
-            "categories" => $categoryTransformer->transformData($data['categories']),
-            "images" => $data['images'],
-            "videos" => $data['videos'],
-            "price" => [
-                "default" => $data['price'],
-                "offer" => $data['offer'],
+            'skuId' => $data['skuId'],
+            'skuSellerId' => $data['skuSellerId'],
+            'productSellerId' => $data['skuSellerId'],
+            'title' => $data['title'],
+            'description' => $data['description'],
+            'brand' => $data['brand'],
+            'gtin' => $data['gtin'],
+            'categories' => $categoryTransformer->transformData($data['categories']),
+            'images' => $data['images'],
+            'videos' => $data['videos'],
+            'price' => [
+                'default' => $data['price'],
+                'offer' => $data['offer'],
             ],
-            "stock" => [
-                "quantity" => $data['stock'],
-                "crossDockingTime" => $data['crossDockingTime'],
+            'stock' => [
+                'quantity' => $data['stock'],
+                'crossDockingTime' => $data['crossDockingTime'],
             ],
-            "dimensions" => [
-                "weight" => $data['weight'],
-                "length" => $data['length'],
-                "width"  => $data['width'],
-                "height" => $data['height'],
+            'dimensions' => [
+                'weight' => $data['weight'],
+                'length' => $data['length'],
+                'width'  => $data['width'],
+                'height' => $data['height'],
             ],
-            "giftWrap" => [
-                "available" => false,
-                "value" => 0,
-                "messageSupport" => false
+            'giftWrap' => [
+                'available' => false,
+                'value' => 0,
+                'messageSupport' => false
             ],
-            "attributes" => $data['attributes'],
+            'attributes' => $data['attributes'],
         ];
     }
 }

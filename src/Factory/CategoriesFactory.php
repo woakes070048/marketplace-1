@@ -9,7 +9,7 @@ class CategoriesFactory
     /**
      * Generate a list of faker product categories.
      *
-     * @param integer $max]
+     * @param int $max
      *
      * @return array
      */

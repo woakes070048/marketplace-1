@@ -19,5 +19,4 @@ class CnovaSandbox
 
         return $this->api->execute('post.products', $productFactory->generateData($max));
     }
-
 }

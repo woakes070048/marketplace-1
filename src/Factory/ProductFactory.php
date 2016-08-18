@@ -31,10 +31,10 @@ class ProductFactory
             'offer' => $faker->randomFloat(2, 1, ($price - 1)),
             'stock' => $faker->randomNumber(1),
             'crossDockingTime' => $faker->randomNumber(1),
-            "weight" => $faker->randomFloat(2, 0.1, 9.99),
-            "length" => $faker->randomFloat(2, 0.1, 9.99),
-            "width"  => $faker->randomFloat(2, 0.1, 9.99),
-            "height" => $faker->randomFloat(2, 0.1, 9.99),
+            'weight' => $faker->randomFloat(2, 0.1, 9.99),
+            'length' => $faker->randomFloat(2, 0.1, 9.99),
+            'width' => $faker->randomFloat(2, 0.1, 9.99),
+            'height' => $faker->randomFloat(2, 0.1, 9.99),
             'attributes' => $attrs->generateData($faker->randomNumber(1)),
         ];
     }

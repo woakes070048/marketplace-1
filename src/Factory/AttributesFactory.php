@@ -9,7 +9,7 @@ class AttributesFactory
     /**
      * Generate a list of faker product attributes.
      *
-     * @param integer $max
+     * @param int $max
      *
      * @return array
      */
@@ -21,8 +21,8 @@ class AttributesFactory
         for ($i = 1; $i <= $max; $i++) {
 
             $attributes[] = [
-                "name" => $faker->firstName,
-                "value" => $faker->lastName,
+                'name' => $faker->firstName,
+                'value' => $faker->lastName,
             ];
         }
 
