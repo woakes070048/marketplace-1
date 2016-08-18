@@ -26,6 +26,9 @@ class Cnova extends BaseApi
                 'get.orders.sent'      => 'orders/status/sent',
                 'get.orders.delivered' => 'orders/status/delivered',
             ], new CnovaRequestTransformer(), new CnovaOrderResponseTransformer());
+
+            $api->endpoint('get', 'loads/products', 'get.products.loads')
+                ->transformer(new CnovaProductRequestTransformer(), 'request');
         });
     }
 }
