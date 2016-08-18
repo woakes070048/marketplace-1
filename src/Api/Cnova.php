@@ -19,25 +19,15 @@ class Cnova extends BaseApi
             ], 'headers');
 
             // endpoints
-            $api->endpoint('get', 'orders', 'get.orders')
-                ->transformer(new CnovaOrderResponseTransformer(), 'response')
-                ->transformer(new CnovaRequestTransformer(), 'request');
+            $ordersEndpoints = $api->endpointGroup('get', [
+                'get.orders' => 'orders',
+                'get.orders.approved' => 'orders/status/approved',
+                'get.orders.canceled' => 'orders/status/canceled',
+                'get.orders.sent' => 'orders/status/sent',
+                'get.orders.delivered' => 'orders/status/delivered',
+            ]);
 
-            $api->endpoint('get', 'orders/status/approved', 'get.orders.approved')
-                ->transformer(new CnovaOrderResponseTransformer(), 'response')
-                ->transformer(new CnovaRequestTransformer(), 'request');
-
-            $api->endpoint('get', 'orders/status/canceled', 'get.orders.canceled')
-                ->transformer(new CnovaOrderResponseTransformer(), 'response')
-                ->transformer(new CnovaRequestTransformer(), 'request');
-
-            $api->endpoint('get', 'orders/status/sent', 'get.orders.sent')
-                ->transformer(new CnovaOrderResponseTransformer(), 'response')
-                ->transformer(new CnovaRequestTransformer(), 'request');
-
-            $api->endpoint('get', 'orders/status/delivered', 'get.orders.delivered')
-                ->transformer(new CnovaOrderResponseTransformer(), 'response')
-                ->transformer(new CnovaRequestTransformer(), 'request');
+            $api->transformerGroup($ordersEndpoints, new CnovaRequestTransformer(), new CnovaOrderResponseTransformer());
         });
     }
 }
