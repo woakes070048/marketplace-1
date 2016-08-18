@@ -26,11 +26,11 @@ class Orders
      *
      * @return self
      */
-    public function approved()
+    public function approved($page = 1)
     {
         $this->filter = '.approved';
 
-        return $this;
+        return $this->get($page);
     }
 
     /**
@@ -38,11 +38,11 @@ class Orders
      *
      * @return self
      */
-    public function canceled()
+    public function canceled($page = 1)
     {
         $this->filter = '.canceled';
 
-        return $this;
+        return $this->get($page);
     }
 
     /**
@@ -50,11 +50,11 @@ class Orders
      *
      * @return self
      */
-    public function sent()
+    public function sent($page = 1)
     {
         $this->filter = '.sent';
 
-        return $this;
+        return $this->get($page);
     }
 
     /**
@@ -62,48 +62,11 @@ class Orders
      *
      * @return self
      */
-    public function delivered()
+    public function delivered($page = 1)
     {
         $this->filter = '.delivered';
 
-        return $this;
-    }
-
-    /**
-     * Set the limit of request.
-     *
-     * @return selft
-     */
-    public function limit($limit)
-    {
-        $this->limitVal = $limit;
-
-        return $this;
-    }
-
-    /**
-     * Set the offset of request.
-     *
-     * @return selft
-     */
-    public function offset($offset)
-    {
-        $this->offsetVal = $offset;
-
-        return $this;
-    }
-
-    /**
-     * Set the page and offset of request.
-     *
-     * @return selft
-     */
-    public function page($page)
-    {
-        $this->pageVal = $page;
-        $this->offsetVal = ($page - 1) * $this->limitVal;
-
-        return $this;
+        return $this->get($page);
     }
 
     /**
@@ -113,7 +76,7 @@ class Orders
      */
     public function get($page = 1)
     {
-        $this->page($page);
+        $this->offsetVal = ($page - 1) * $this->limitVal;
         $data = [
             'limit'  => $this->limitVal,
             'offset' => $this->offsetVal,
