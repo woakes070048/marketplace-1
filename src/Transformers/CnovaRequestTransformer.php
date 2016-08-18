@@ -9,7 +9,7 @@ class CnovaRequestTransformer extends Transformer
     protected function transform(array $data)
     {
         return [
-            '_limit'  => $data['limit'],
+            '_limit' => $data['limit'],
             '_offset' => $data['offset'],
         ];
     }

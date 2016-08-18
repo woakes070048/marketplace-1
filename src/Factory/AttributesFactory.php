@@ -6,6 +6,13 @@ use Faker\Factory;
 
 class AttributesFactory
 {
+    /**
+     * Generate a list of faker product attributes.
+     *
+     * @param integer $max
+     *
+     * @return array
+     */
     public function generateData($max = 1)
     {
         $faker = Factory::create();

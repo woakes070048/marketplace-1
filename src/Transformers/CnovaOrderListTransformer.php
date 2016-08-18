@@ -17,17 +17,17 @@ class CnovaOrderListTransformer extends Transformer
     {
         return array_map(function ($order) {
             return [
-                'shop'         => $order['site'],
+                'shop' => $order['site'],
                 'martketplace' => [
-                    'id'    => 1,
-                    'code'  => 'cnova',
+                    'id' => 1,
+                    'code' => 'cnova',
                     'title' => 'Cnova',
                 ],
-                'mktOrderId'   => $order['id'],
+                'mktOrderId' => $order['id'],
                 'mktOrderCode' => $order['orderSiteId'],
-                'updatedAt'    => date('Y-m-d H:i:s', strtotime($order['updatedAt'])),
-                'approvedAt'   => date('Y-m-d H:i:s', strtotime($order['approvedAt'])),
-                'purchasedAt'  => date('Y-m-d H:i:s', strtotime($order['purchasedAt'])),
+                'updatedAt' => date('Y-m-d H:i:s', strtotime($order['updatedAt'])),
+                'approvedAt' => date('Y-m-d H:i:s', strtotime($order['approvedAt'])),
+                'purchasedAt' => date('Y-m-d H:i:s', strtotime($order['purchasedAt'])),
             ];
         }, $data);
     }
