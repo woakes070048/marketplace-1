@@ -19,7 +19,7 @@ class Cnova extends BaseApi
             ], 'headers');
 
             // endpoints
-            $ordersEndpoints = $api->endpointGroup('get', [
+            $api->endpointGroup('get', [
                 'get.orders'           => 'orders',
                 'get.orders.approved'  => 'orders/status/approved',
                 'get.orders.canceled'  => 'orders/status/canceled',
