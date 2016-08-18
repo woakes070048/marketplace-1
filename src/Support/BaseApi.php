@@ -9,7 +9,12 @@ class BaseApi extends Api
 {
     public function orders()
     {
-        return new Orders($this);
+        return new OrderSupport($this);
+    }
+
+    public function products()
+    {
+        return new ProductSupport($this);
     }
 
     /**

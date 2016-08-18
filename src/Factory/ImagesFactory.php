@@ -4,10 +4,10 @@ namespace Raidros\Marketplace\Factory;
 
 use Faker\Factory;
 
-class AttributesFactory
+class ImagesFactory
 {
     /**
-     * Generate a list of faker product attributes.
+     * Generate a list of faker images.
      *
      * @param int $max
      *
@@ -16,15 +16,12 @@ class AttributesFactory
     public static function generateData($max = 1)
     {
         $faker = Factory::create();
-        $attributes = [];
+        $images = [];
 
         for ($i = 1; $i <= $max; $i++) {
-            $attributes[] = [
-                'name' => $faker->firstName,
-                'value' => $faker->lastName,
-            ];
+            $images[] = $faker->imageUrl($width = 1024, $height = 768);
         }
 
-        return $attributes;
+        return $images;
     }
 }

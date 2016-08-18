@@ -13,7 +13,7 @@ class CategoriesFactory
      *
      * @return array
      */
-    public function generateData($max = 1)
+    public static function generateData($max = 1)
     {
         $faker = Factory::create();
         $categories = [];

@@ -4,10 +4,10 @@ namespace Raidros\Marketplace\Factory;
 
 use Faker\Factory;
 
-class AttributesFactory
+class GtinFactory
 {
     /**
-     * Generate a list of faker product attributes.
+     * Generate a list of faker gtins.
      *
      * @param int $max
      *
@@ -16,15 +16,12 @@ class AttributesFactory
     public static function generateData($max = 1)
     {
         $faker = Factory::create();
-        $attributes = [];
+        $gtins = [];
 
         for ($i = 1; $i <= $max; $i++) {
-            $attributes[] = [
-                'name' => $faker->firstName,
-                'value' => $faker->lastName,
-            ];
+            $gtins[] = $faker->ean13;
         }
 
-        return $attributes;
+        return $gtins;
     }
 }

@@ -4,6 +4,7 @@ namespace Raidros\Marketplace\Api;
 
 use Raidros\Marketplace\Support\BaseApi;
 use Raidros\Marketplace\Transformers\CnovaOrderResponseTransformer;
+use Raidros\Marketplace\Transformers\CnovaProductRequestTransformer;
 use Raidros\Marketplace\Transformers\CnovaRequestTransformer;
 
 class Cnova extends BaseApi
@@ -27,7 +28,7 @@ class Cnova extends BaseApi
                 'get.orders.delivered' => 'orders/status/delivered',
             ], new CnovaRequestTransformer(), new CnovaOrderResponseTransformer());
 
-            $api->endpoint('get', 'loads/products', 'get.products.loads')
+            $api->endpoint('post', 'loads/products', 'post.products.loads')
                 ->transformer(new CnovaProductRequestTransformer(), 'request');
         });
     }

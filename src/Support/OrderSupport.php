@@ -4,7 +4,7 @@ namespace Raidros\Marketplace\Support;
 
 use Raidros\Storer\Api;
 
-class Orders
+class OrderSupport
 {
     protected $api;
     protected $filter;

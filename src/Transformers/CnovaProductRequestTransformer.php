@@ -20,7 +20,7 @@ class CnovaProductRequestTransformer extends Transformer
             'gtin' => $data['gtin'],
             'categories' => $categoryTransformer->transformData($data['categories']),
             'images' => $data['images'],
-            'videos' => $data['videos'],
+            'videos' => [],
             'price' => [
                 'default' => $data['price'],
                 'offer' => $data['offer'],
