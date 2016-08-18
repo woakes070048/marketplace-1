@@ -22,12 +22,12 @@ class BaseApi extends Api
      *
      * @return self
      */
-    public function endpointGroup($method, array $endpoints, Transformer $requestTransformer, Transformer $responseTransformers)
+    public function endpointGroup($method, array $endpoints, Transformer $reqTrans, Transformer $respTrans)
     {
-        array_map(function ($key, $point) use ($method, $requestTransformer, $responseTransformers) {
+        array_map(function ($key, $point) use ($method, $reqTrans, $respTrans) {
             return $this->endpoint($method, $point, $key)
-                ->transformer($responseTransformers, 'response')
-                ->transformer($requestTransformer, 'request');
+                ->transformer($respTrans, 'response')
+                ->transformer($reqTrans, 'request');
         }, array_keys($endpoints), $endpoints);
 
         return $this;
