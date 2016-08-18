@@ -9,14 +9,14 @@ class CnovaOrderRequestPostTransformer extends Transformer
     protected function transform(array $data)
     {
         return [
-            'site'  => 'ex',
+            'site'  => 'extra',
             'items' => [
             [
               'skuSellerId' => 'string',
-              'name'        => 'string',
-              'salePrice'   => 0,
-              'quantity'    => 0
-            ]
+              'name' => 'string',
+              'salePrice' => 0,
+              'quantity' => 0,
+            ],
           ],
           'customer' => [
             'name' => 'string',
@@ -34,14 +34,14 @@ class CnovaOrderRequestPostTransformer extends Transformer
               'city' => 'string',
               'state' => 'string',
               'countryId' => 'string',
-              'zipCode' => 'string'
+              'zipCode' => 'string',
             ],
             'phones' => [
               'mobile' => 'string',
               'home' => 'string',
-              'office' => 'string'
-            ]
-          ]
+              'office' => 'string',
+            ],
+          ],
         ];
     }
 }
